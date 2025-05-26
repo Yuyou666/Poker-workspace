@@ -1,3 +1,4 @@
+// Card.h: Represents a single playing card, with type, rank, suit, and special properties.
 #ifndef CARD_H
 #define CARD_H
 #include <iostream>

@@ -1,20 +1,27 @@
+// Store.h: Represents the in-game store for buying, deleting, and replacing cards in the player's deck.
 #ifndef STORE_H
 #define STORE_H
 #include <iostream>
+#include <vector>
 #include "Card.h"
 #include "CardGroup.h"
 #include "Deck.h"
 #include "Player.h"
 #include "Round.h"
 using namespace std;
-class Store{
-    private:
-        Card *CreatCard();//random card creator
-    public:
-        void addCard();
-        void removeCard(Card *card);
-        void modifyCard(Card *card);
-        void printCards();
 
+class Store {
+    private:
+        vector<string> ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        vector<string> suits = {"hearts", "diamonds", "clubs", "spades"};
+        Card* generateRandomCard(const string& type);
+        
+    public:
+        Store() noexcept;
+        ~Store();
+        vector<Card*> add();
+        bool deleteCard(Deck& playerDeck, int index);
+        bool replaceCard(Deck& playerDeck, int replaceIndex, Card* newCard);
+        Card* generateCardOfType(const string& type);
 };
 #endif // STORE_H

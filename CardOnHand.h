@@ -11,7 +11,7 @@ class CardOnHand : public CardGroup {
     public:
         CardOnHand();//orginal hand constructor with 9 cards
         void discards(int index[5]);//discrds at most 5 cards, array of index filled with -1 for not full
-        void printCards();//print with suit and rank order
+        void printCards() const override;//print with suit and rank order
         Card **select(int index[5]);//select,delete at most 5 cards, array of index filled with -1 for not full
         void drawFull();
     };      
